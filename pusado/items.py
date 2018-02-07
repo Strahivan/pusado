@@ -11,6 +11,7 @@ from scrapy.item import Item, Field
 class PusadoItem(scrapy.Item):
     name = Field()
     email = Field()
+    email2 = Field()
     location = Field()
     pensionname = Field()
     pass
