@@ -12,6 +12,7 @@ class PusadoItem(scrapy.Item):
     name = Field()
     email = Field()
     email2 = Field()
+    website = Field()
     location = Field()
     pensionname = Field()
     pass

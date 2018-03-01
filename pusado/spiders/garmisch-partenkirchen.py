@@ -7,11 +7,11 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from pusado.items import PusadoItem
 
-class Berchtesgaden(CrawlSpider):
+class Garmisch(CrawlSpider):
 
-    name = 'berchtesgaden'
-    allowed_domains = ['berchtesgaden.de']
-    start_urls = ['https://www.berchtesgaden.de/hotel-berchtesgaden']
+    name = 'garmisch'
+    allowed_domains = ['presiwert-uebernachten.de']
+    start_urls = ['https://www.preiswert-uebernachten.de/hotel-pensionen/garmisch-partenkirchen/5042?page=1']
 
 
     rules = (Rule (LinkExtractor(allow=(''),
@@ -27,5 +27,10 @@ class Berchtesgaden(CrawlSpider):
            item ["email2"] = hxs.select('//*[@id="content"]/div[1]/section/div/aside/div/div[4]/div[1]/div[2]/div[1]/div/span[6]/a/@href').extract()
            items.append(item)
            return items
-#//*[@id="content"]/div[1]/section/div/aside/div/div[4]/div[1]/div[2]/div[1]/div/span[1]/text()
-#//*[@id="content"]/div[1]/section/div/aside/div/div[4]/div[1]/div[2]/div[1]/div/span[1]
+
+# muss manuell gemacht werden da Struktur wie folgt aussieht:
+#//*[@id="li-10452"]/div[2]/div/a
+#//*[@id="li-15794"]/div[2]/div/a
+#//*[@id="li-6745"]/div[2]/div/a
+#//*[@id="li-6714"]/div[2]/div/a
+#//*[@id="li-10440"]/div[2]/div/a
